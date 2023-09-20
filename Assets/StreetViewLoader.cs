@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class StreetViewLoader : MonoBehaviour
 {
     public Material material;
-    private double heading = 0.0;
-    private double pitch = 0.0;
+    public double heading = 0.0;
+    public double pitch = 0.0;
     
     private int width = 2048;
     private int height = 2048;
 
-    private double longitude = 139.667431;
-    private double latitude = 35.697408;
+    public double longitude = 128.507333;
+    public double latitude = 35.843904;
     private Texture2D frontTex, leftTex, rightTex, backTex, upTex, downTex;
 
     // Use this for initialization
@@ -22,6 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
         StreetView(latitude,longitude,pitch,heading);
         
     }
+
     public void StreetView(double latitude,double longitude,double pitch,double heading)
     {
         StartCoroutine(GetStreetViewImage(latitude, longitude, 0, pitch));
@@ -36,6 +37,7 @@ public class NewBehaviourScript : MonoBehaviour
     private void SetSkybox(Material material)
     {
         RenderSettings.skybox = material;
+        DynamicGI.UpdateEnvironment();
     }
 
     private Material setMaterial()
@@ -57,7 +59,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private IEnumerator GetStreetViewImage(double latitude, double longitude, double heading, double pitch)
     {
-        string url = "http://maps.googleapis.com/maps/api/streetview?" + "size=" + width + "x" + height + "&location=" + latitude + "," + longitude + "&heading=" + heading + "&pitch=" + pitch + "&fov=90&sensor=false";
+        string url = "http://maps.googleapis.com/maps/api/streetview?" + "size=" + width + "x" + height + "&location=" + latitude + "," + longitude + "&fov=80" + "&heading=" + heading + "&pitch=" + pitch + "&key=AIzaSyAe1pyvALYCjngz7x1c3nfMlcZ3hkl63U0";
 
         WWW www = new WWW(url);
         yield return www;
@@ -91,4 +93,9 @@ public class NewBehaviourScript : MonoBehaviour
         }
         Debug.Log(www.texture);
     }
+
+    // public void forwardStreetView(double newLatitude){
+    //     this.latitude = newLatitude;
+    //     StreetView(latitude,longitude,pitch,heading);
+    // }
 }
