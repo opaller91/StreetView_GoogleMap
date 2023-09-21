@@ -19,6 +19,9 @@ public class CameraController : MonoBehaviour
     // private float targetAngle = 0;
     // public float yy;
     public StreetViewLoader streetview;
+    public float meters = 50;
+    public double new_lats;
+    public double new_longs;
 
     // Start is called before the first frame update
     void Start()
@@ -54,8 +57,30 @@ public class CameraController : MonoBehaviour
     }
 
     // void moveForward(){
-    //     streetview.forwardStreetView(streetview.latitude + 0.001000);
-    //     // streetview.StreetView(StreetViewLoader.latitude,StreetViewLoader.longitude,streetview.pitch,streetview.heading);
+    //     // float latf = (float)streetview.latitude;
+    //     // float longf = (float)streetview.longitude;
+
+    //     // 111.32km = 111320.0m
+    //     // float coef = meters /(float)111320.0;
+    //     // float new_latf = latf + coef;
+    //     // new_latf = Mathf.Round(new_latf * 100.0f) * 0.000001f;
+    //     // decimal new_latd = new decimal(new_latf);
+    //     // double new_lat = (double) new_latd;
+    //     // this.new_lats = new_lat;
+        
+        
+    //     // pi / 180 ~= 0.01745
+    //     // float cos_lat =  Mathf.Cos(latf  * (float)0.01745);
+    //     // float new_longf = longf + coef / cos_lat;
+    //     // new_longf = Mathf.Round(new_longf * 100.0f) * 0.000001f;
+    //     // decimal new_longd = new decimal(new_longf);
+    //     // double new_long = (double) new_longf;
+    //     // this.new_longs = new_long;
+        
+    //     //---------------------------------
+    //     // double new_lat = streetview.latitude - 0.000085;
+    //     // double new_long = streetview.longitude + 0.000001;
+    //     // streetview.forwardStreetView(new_lat,new_long);
     //     // Camera.main.transform.Position();
     // }
 

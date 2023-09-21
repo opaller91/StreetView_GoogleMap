@@ -23,6 +23,11 @@ public class StreetViewLoader : MonoBehaviour
         
     }
 
+    // void Update()
+    // {
+    //      StreetView(latitude,longitude,pitch,heading);
+    // }
+
     public void StreetView(double latitude,double longitude,double pitch,double heading)
     {
         StartCoroutine(GetStreetViewImage(latitude, longitude, 0, pitch));
@@ -37,7 +42,7 @@ public class StreetViewLoader : MonoBehaviour
     private void SetSkybox(Material material)
     {
         RenderSettings.skybox = material;
-        DynamicGI.UpdateEnvironment();
+        // DynamicGI.UpdateEnvironment();
     }
 
     private Material setMaterial()
@@ -59,7 +64,8 @@ public class StreetViewLoader : MonoBehaviour
 
     private IEnumerator GetStreetViewImage(double latitude, double longitude, double heading, double pitch)
     {
-        string url = "http://maps.googleapis.com/maps/api/streetview?" + "size=" + width + "x" + height + "&location=" + latitude + "," + longitude + "&fov=80" + "&heading=" + heading + "&pitch=" + pitch + "&key=AIzaSyAe1pyvALYCjngz7x1c3nfMlcZ3hkl63U0";
+        //Enter your google API key
+        string url = "http://maps.googleapis.com/maps/api/streetview?" + "size=" + width + "x" + height + "&location=" + latitude + "," + longitude + "&fov=80" + "&heading=" + heading + "&pitch=" + pitch + "&key=";
 
         WWW www = new WWW(url);
         yield return www;
@@ -94,8 +100,9 @@ public class StreetViewLoader : MonoBehaviour
         Debug.Log(www.texture);
     }
 
-    // public void forwardStreetView(double newLatitude){
+    // public void forwardStreetView(double newLatitude, double newLongitude){
     //     this.latitude = newLatitude;
-    //     StreetView(latitude,longitude,pitch,heading);
+    //     this.longitude = newLongitude;
+    //     // StreetView(latitude,longitude,pitch,heading);
     // }
 }

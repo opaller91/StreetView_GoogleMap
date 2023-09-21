@@ -316,6 +316,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: a11703ac29dbd4b6a8b9baa8a0d5619e, type: 2}
+  heading: 0
+  pitch: 0
+  longitude: 128.507333
+  latitude: 35.843904
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +336,10 @@ MonoBehaviour:
   leftBt: {fileID: 1918170297}
   forwardBt: {fileID: 1901618726}
   backwardBt: {fileID: 964426834}
-  yy: 0
+  streetview: {fileID: 963194229}
+  meters: 50
+  new_lats: 0
+  new_longs: 0
 --- !u!1 &964426832
 GameObject:
   m_ObjectHideFlags: 0
